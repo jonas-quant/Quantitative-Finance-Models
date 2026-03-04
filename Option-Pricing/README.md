@@ -1,23 +1,17 @@
-# Option Pricing Models
+# Option Pricing & Volatility Modeling
 
-This directory contains continuous-time financial models implemented in MATLAB/Simulink for pricing European options and simulating asset trajectories.
+This directory contains implementations of fundamental and advanced option pricing models. The focus is on European derivative valuation and the simulation of underlying asset trajectories under different market assumptions.
 
-## 1. Heston Stochastic Volatility Model
-The Heston model improves upon the Black-Scholes framework by assuming that volatility is not constant, but follows a random process. This implementation models the coupled Stochastic Differential Equations (SDEs) for the asset price $S_t$ and its variance $v_t$:
+By utilizing MATLAB and Simulink, these projects apply a systems-engineering approach to financial mathematics. Complex analytical formulas and differential equations are broken down into modular subsystems, allowing for clear visualization of the data flow and feedback loops.
 
-$$dS_t = \mu S_t dt + \sqrt{v_t} S_t dW_t^S$$
-$$dv_t = \kappa(\theta - v_t)dt + \xi \sqrt{v_t} dW_t^v$$
+## Implemented Models
 
-* **Simulink Implementation:** The model captures the mean-reverting behavior of variance and simulates Monte Carlo paths for the underlying asset. 
-* **Files:** `Heston-Model/heston_sim.slx` and `Heston-Model/init_heston.m`.
+### 1. [Black-Scholes Model](./Black-Scholes/)
+* **Market Assumption:** Constant volatility and log-normal asset returns.
+* **Implementation:** Block-diagram architecture of the analytical closed-form solution.
+* **Key Features:** Real-time calculation of Call and Put premiums, utilizing encapsulated subsystems for intermediate variables ($d_1$ and $d_2$).
 
-## 2. Black-Scholes-Merton Model
-A block-diagram implementation of the classic Geometric Brownian Motion (GBM) and the analytical pricing formula for European options. The underlying asset dynamics are given by:
-
-$$dS_t = \mu S_t dt + \sigma S_t dW_t$$
-
-* **Simulink Implementation:** Visualizes the analytical solution and simulates the asset price trajectory under constant volatility.
-* **Files:** `Black-Scholes/bs_sim.slx` and `Black-Scholes/init_bs.m`.
-
-## Usage
-To run the simulations, execute the respective `.m` initialization script in MATLAB to load the workspace parameters, then run the `.slx` Simulink model.
+### 2. [Heston Stochastic Volatility Model](./Heston-Model/)
+* **Market Assumption:** Volatility is a random, mean-reverting process (addressing the empirical volatility smile).
+* **Implementation:** Discrete-time simulation of coupled Stochastic Differential Equations (SDEs) utilizing Euler-Maruyama discretization.
+* **Key Features:** Monte Carlo path generation, correlation parameters between asset price and variance ($\rho$), and state-variable feedback loops using unit delays.
