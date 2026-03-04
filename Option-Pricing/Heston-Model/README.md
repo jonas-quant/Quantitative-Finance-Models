@@ -28,10 +28,10 @@ The system utilizes a discrete-time solver approach (`FixedStepDiscrete`). The s
 
 ## Simulation Results
 
-The initialization script (`init_heston.m`) generates the correlated noise matrices and drives the Simulink model. The output demonstrates the stochastic trajectory of the asset price alongside the mean-reverting behavior of its variance over a one-year horizon (252 trading days).
+The initialization script (`parameters_heston.m`) generates the correlated noise matrices and drives the Simulink model. The output demonstrates the stochastic trajectory of the asset price alongside the mean-reverting behavior of its variance over a one-year horizon (252 trading days).
 
 ![Heston Simulation Output](heston_result.PNG)
 
 ## Usage
 1. Open `matlab_function_heston.slx` in Simulink.
-2. Run the `init_heston.m` script. This will populate the workspace with the necessary parameters, generate the correlated Brownian motions, execute the Simulink model, and plot the resulting paths.
+2. Run the `parameters_heston.m` script. This will populate the workspace with the necessary parameters, generate the correlated Brownian motions, execute the Simulink model, and plot the resulting paths.
