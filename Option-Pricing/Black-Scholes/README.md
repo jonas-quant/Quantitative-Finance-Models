@@ -20,7 +20,7 @@ $$d_2 = d_1 - \sigma \sqrt{T}$$
 
 Below is the block diagram of the implementation:
 
-![Black-Scholes Simulink Model](bs_diagram.PNG)
+![Black-Scholes Simulink Model](bs_diagram.png)
 
 ### Model Components:
 * **Inputs Variables:** The model takes real-time or static inputs for Asset Price ($S$), Strike Price ($K$), Risk-free Rate ($r$), Time to Maturity ($T$), and Volatility ($\sigma$).
